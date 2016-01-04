@@ -1,56 +1,57 @@
 package com.ExampleCompany;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+
+
 
 /**
  * Created by mar08139317 on 03/11/2015.
  */
 public class jframe{
 
-    // yhjgfhkjkhkjhjkhjkhjkhjklhk
-
-        public static void main(String[] args){
 
 
-            JFrame myFirstFrame = new JFrame("Hello World");
+        public static void main(String[] args) {
+
+
+            JFrame myFirstFrame = new JFrame("Voting Application");
             myFirstFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            myFirstFrame.setSize(400, 400);
+            myFirstFrame.setSize(600, 400);
             myFirstFrame.setVisible(true);
 
+            JPanel menu = new JPanel();
+            menu.setAlignmentX(Component.LEFT_ALIGNMENT);
+            menu.setSize(200, 200);
 
-            JMenuBar menuBar = new JMenuBar();
-            JMenu file = new JMenu("File");
-            file.setMnemonic(KeyEvent.VK_F);
+            JButton home =  new JButton("Home");
+            JButton vote =  new JButton("Vote");
+            JButton reason =  new JButton("Why Vote?");
+            JButton help = new JButton("Help/Contact");
+            menu.add(home);
+            menu.add(vote);
+            menu.add(reason);
+            menu.add(help);
 
-            JMenuItem exit = new JMenuItem("Exit");
-            exit.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    System.exit(0);
-                }
-            });
-
-            file.add(exit);
-            menuBar.add(file);
-
-            myFirstFrame.add(menuBar);
+            //Aidan - Added taskbar and buttons for app.
 
             BoxLayout boxlayout = new BoxLayout (myFirstFrame.getContentPane(), BoxLayout.Y_AXIS);
             myFirstFrame.setLayout(boxlayout);
 
-            JLabel title = new JLabel("Type your First Name");
-            myFirstFrame.add(title);
+            myFirstFrame.add(menu);
 
             JTextField firstName = new JTextField(100);
             myFirstFrame.add(firstName);
 
             JButton process = new JButton("Process");
-
+               // myFirstFrame.add(home);
                 myFirstFrame.add(process);
                 myFirstFrame.setVisible(true);
+
+
         }
 
 
