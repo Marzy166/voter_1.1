@@ -15,7 +15,7 @@ public class jframe{
 
 
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
 
 
             JFrame myFirstFrame = new JFrame("Voting Application");
@@ -24,34 +24,98 @@ public class jframe{
             myFirstFrame.setVisible(true);
 
             JPanel menu = new JPanel();
+            menu.setBackground(Color.decode("#80beff"));
             menu.setAlignmentX(Component.LEFT_ALIGNMENT);
-            menu.setSize(200, 200);
+            JPanel content = new JPanel();
+            JPanel in_content = new JPanel();
+            content.setAlignmentX(Component.LEFT_ALIGNMENT);
+            content.setSize(200, 200);
 
+            content.add(in_content);
+            content.setBackground(Color.white);
             JButton home =  new JButton("Home");
             JButton vote =  new JButton("Vote");
             JButton reason =  new JButton("Why Vote?");
             JButton help = new JButton("Help/Contact");
+
             menu.add(home);
             menu.add(vote);
             menu.add(reason);
             menu.add(help);
-
             //Aidan - Added taskbar and buttons for app.
 
             BoxLayout boxlayout = new BoxLayout (myFirstFrame.getContentPane(), BoxLayout.Y_AXIS);
             myFirstFrame.setLayout(boxlayout);
 
             myFirstFrame.add(menu);
+            myFirstFrame.add(content);
 
-            JTextField firstName = new JTextField(100);
-            myFirstFrame.add(firstName);
+            // Run home as first
+            content new_panel = new content();
+            content.removeAll();
+            in_content.add(new_panel.home());
+            in_content.setBackground(Color.white);
+            content.add(in_content);
+            myFirstFrame.pack();
 
-            JButton process = new JButton("Process");
-               // myFirstFrame.add(home);
-                myFirstFrame.add(process);
+
                 myFirstFrame.setVisible(true);
 
+            // home button event
+            home.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    content new_panel = new content();
+                    content.removeAll();
+                    JPanel in_content = new JPanel();
+                    in_content.setBackground(Color.white);
+                    in_content.add(new_panel.home());
+                    content.add(in_content);
+                    myFirstFrame.pack();
 
+                }
+            });
+
+            // vote button event
+            vote.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    content new_panel = new content();
+                    content.removeAll();
+                    JPanel in_content = new JPanel();
+                    in_content.setBackground(Color.white);
+                    in_content.add(new_panel.vote());
+                    content.add(in_content);
+                    myFirstFrame.pack();
+
+                }
+            });
+
+            // reason button event
+            reason.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    content new_panel = new content();
+                    content.removeAll();
+                    JPanel in_content = new JPanel();
+                    in_content.setBackground(Color.white);
+                    in_content.add(new_panel.reason());
+                    content.add(in_content);
+                    myFirstFrame.pack();
+
+                }
+            });
+
+            // help button event
+            help.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    content new_panel = new content();
+                    content.removeAll();
+                    JPanel in_content = new JPanel();
+                    in_content.setBackground(Color.white);
+                    in_content.add(new_panel.help());
+                    content.add(in_content);
+                    myFirstFrame.pack();
+
+                }
+            });
         }
 
 
