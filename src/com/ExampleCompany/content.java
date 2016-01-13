@@ -74,7 +74,7 @@ public class content {
                 Json_connect connect = new Json_connect();
                 try {
                     String login = connect.login(username.getText(), password.getText());
-                    if (login.equals("1")) {
+                    if (login.equals("2")) {
                         usr = username.getText();
                         JFrame newer = new JFrame("vote | " + usr);
                         newer.setSize(600, 400);
@@ -135,6 +135,14 @@ public class content {
 
                         content.add(radioPanel);
                         content.add(cast_vote);
+
+
+                        JLabel ln1 = new JLabel("Voting is quick and easy, simply go to the voting section ");
+                        JLabel ln2 = new JLabel("and click the name if the person you wish to vote for.");
+                        JLabel ln3 = new JLabel("Then proceed to vote");
+                        content.add(ln1);
+                        content.add(ln2);
+                        content.add(ln3);
 
                         newer.add(content);
                         newer.pack();
